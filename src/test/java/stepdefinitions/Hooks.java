@@ -57,7 +57,8 @@ public class Hooks {
   }
   private void killJuiceShop(){
     try {
-      processBuilder.command("bash", "-c", "killall -9 node").start();
+//      processBuilder.command("bash", "-c", "killall -9 node").start(); // Didn't work on Windows 10
+      processBuilder.command("taskkill", "/f", "/im", "node.exe").start(); // Windows 10 command to kill node.exe
     } catch (IOException e) {
       e.printStackTrace();
     }
